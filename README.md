@@ -1,6 +1,7 @@
-# spotify_analysis
 
-spotify analysis
+# span
+
+span (SPotify ANalyzer) is a CLI for managing exported Spotify data.
 
 ## dev
 
