@@ -7,10 +7,10 @@ authors = ["xdrie <xdrie@alt.icu>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 spotipy = "^2.12.0"
-click = "^7.1.2"
 python-dotenv = "^0.13.0"
 loguru = "^0.5.0"
 jsonpickle = "^1.4.1"
+typer = "^0.2.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
