@@ -1,12 +1,12 @@
 class Track:
     def __init__(self, artist, album, name, release_date, id, popularity, duration):
-        self.artist = artist
-        self.album = album
-        self.name = name
+        self.artist: str = artist
+        self.album: str = album
+        self.name: str = name
         self.release_date = release_date
-        self.id = id
-        self.popularity = popularity
-        self.duration = duration
+        self.id: str = id
+        self.popularity: int = popularity
+        self.duration: int = duration
 
     def __str__(self):
         return f"{self.name} ({self.duration // 1000}) [{self.release_date}] - {self.artist}, ({self.album})"
@@ -23,10 +23,58 @@ class Track:
             duration=track["duration_ms"],
         )
 
-class LikedTrack:
-    def __init__(self, track, saved_at):
-        self.track = track
+
+class LikedTrack(Track):
+    def __init__(
+        self, artist, album, name, release_date, id, popularity, duration, saved_at
+    ):
+        super().__init__(artist, album, name, release_date, id, popularity, duration)
         self.saved_at = saved_at
-    
+
     def __str__(self):
-        return f"{str(self.track)} (saved at {self.saved_at})"
+        return f"{super.__str__()} (saved at {self.saved_at})"
+
+    @staticmethod
+    def copy_from(track: Track, saved_at):
+        return LikedTrack(
+            artist=track.artist,
+            album=track.album,
+            name=track.name,
+            release_date=track.release_date,
+            id=track.id,
+            popularity=track.popularity,
+            duration=track.duration,
+            saved_at=saved_at,
+        )
+
+
+class AudioFeatures:
+    def __init__(
+        self,
+        acousticness,
+        danceability,
+        energy,
+        id,
+        instrumentalness,
+        key,
+        liveness,
+        loudness,
+        mode,
+        speechiness,
+        tempo,
+        time_signature,
+        valence,
+    ):
+        self.acoustincess: float = acousticness
+        self.danceability: float = danceability
+        self.energy: float = energy
+        self.id: str = id
+        self.instrumentalness: float = instrumentalness
+        self.key: int = key
+        self.liveness: float = liveness
+        self.loudness: float = loudness
+        self.mode: int = mode
+        self.speechiness: float = speechiness
+        self.tempo: float = tempo
+        self.time_signature: int = time_signature
+        self.valence: float = valence

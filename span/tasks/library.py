@@ -12,7 +12,7 @@ def process_segment(results) -> List[LikedTrack]:
 
         # get track meta
         track_model = Track.from_spotify(track_obj)
-        liked_track = LikedTrack(track=track_model, saved_at=track_add_date)
+        liked_track = LikedTrack.copy_from(track=track_model, saved_at=track_add_date)
         tracks.append(liked_track)
     return tracks
 
@@ -26,7 +26,7 @@ def get_liked_tracks(sp: Spotify) -> List[LikedTrack]:
         results = sp.next(results)
         liked_tracks.extend(process_segment(results))
 
-    logger.trace('fetched user saved tracks from spotify')
+    logger.success(f"fetched {len(liked_tracks)} user saved tracks from spotify")
 
     # return the list
     return liked_tracks
