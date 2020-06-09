@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "span"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["xdrie <xdrie@alt.icu>"]
 

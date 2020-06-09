@@ -1,5 +1,5 @@
 from spotipy import Spotify
-from models import Track, LikedTrack
+from span.models import Track, LikedTrack
 from typing import List
 from loguru import logger
 

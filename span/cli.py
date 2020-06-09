@@ -27,7 +27,7 @@ def fetch_liked():
     """Get liked songs (saved tracks in spotify library)"""
     sp = get_client()
 
-    from tasks.library import get_liked_tracks
+    from span.tasks.library import get_liked_tracks
 
     liked_tracks = get_liked_tracks(sp)
 
@@ -44,7 +44,7 @@ def analyze_features():
     tracks = jsonpickle.decode(raw_data)
 
     # get track features
-    from tasks.features import get_audio_features
+    from span.tasks.features import get_audio_features
 
     features = get_audio_features(sp, tracks)
 
