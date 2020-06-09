@@ -11,7 +11,7 @@ poetry install
 ## install
 ```sh
 # from git
-pip install git+https://git.rie.icu/xdrie/spotify_analysis.git
+pip install git+https://github.com/xdrie/span
 # or, from source
 pip install .
 ```
