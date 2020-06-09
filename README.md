@@ -20,7 +20,10 @@ pip install .
 
 configuration must be set in environment variables or in a `.env` file.
 
-sample config:
+the `SPOTIPY_*` variables should be set as described in the [Spotipy docs](https://spotipy.readthedocs.io/en/2.12.0/#authorization-code-flow)
+to obtain an authorization token. the token will be cached in a file called `.cache-*` in the current directory.
+
+a sample configuration:
 ```
 SPOTIPY_CLIENT_ID="<redacted>"
 SPOTIPY_CLIENT_SECRET="<redacted>"
