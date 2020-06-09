@@ -1,11 +1,11 @@
 import sys
 from loguru import logger
-import settings
-from auth import authenticate_client
 from spotipy import Spotify
 import typer
 import jsonpickle
-import models
+from span import settings
+from span import models
+from span.auth import authenticate_client
 
 
 def get_client() -> Spotify:  # get an authenticated client
@@ -61,4 +61,5 @@ def main(verbose: bool = typer.Option(False, "--verbose", "-v")):
         logger.trace("verbose mode enabled")
 
 
-app()
+def main():
+    app()
