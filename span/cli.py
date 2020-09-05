@@ -58,7 +58,7 @@ def fetch_features():
 
 
 @app.callback()
-def main(verbose: bool = typer.Option(False, "--verbose", "-v")):
+def cli_main(verbose: bool = typer.Option(False, "--verbose", "-v")):
     """SPAN (SPotify-ANalyzer) liberates data from Spotify for local analysis"""
     if verbose:
         logger.remove()
