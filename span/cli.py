@@ -56,6 +56,17 @@ def fetch_features():
     # export data
     sys.stdout.write(jsonpickle.encode(features))
 
+@crunch_app.command("to_csv")
+def crunch_to_csv(source_data: typer.FileText):
+    """Crunch a list of data classes to CSV"""
+
+    from span.tasks.crunch import to_csv
+
+    csv_data = to_csv(source_data.read())
+
+    # export data
+    sys.stdout.write(csv_data)
+
 @crunch_app.command("feature_sets")
 def crunch_feature_sets(track_list: typer.FileText, feature_data: typer.FileText):
     """Combine track list and feature data into a list of Feature Sets"""

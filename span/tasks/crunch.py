@@ -1,6 +1,12 @@
 from span.models import Track, AudioFeatures, FeatureSet
 from typing import List
 from loguru import logger
+import pandas as pd
+
+def to_csv(raw_data: str) -> str:
+    df = pd.read_json(raw_data)
+    csv_data = df.to_csv(index=True)
+    return csv_data
 
 def make_feature_sets(tracks: List[Track], features: List[AudioFeatures]) -> List[FeatureSet]:
     logger.info(f"merging {len(tracks)} track data with {len(features)} feature data")
