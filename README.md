@@ -5,10 +5,11 @@ span (SPotify ANalyzer) is a CLI for managing exported Spotify data.
 
 ## features
 
-+ export
++ fetch
   + [liked tracks](https://developer.spotify.com/documentation/web-api/reference/library/get-users-saved-tracks/)
-+ analyze
   + [track features](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/)
++ crunch
+  + combine track features and track list into "song feature sets"
 
 ## dev
 
