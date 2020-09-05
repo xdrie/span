@@ -35,9 +35,9 @@ def fetch_liked():
     sys.stdout.write(jsonpickle.encode(liked_tracks))
 
 
-@analyze_app.command("features")
-def analyze_features():
-    """Analyze track features (read from stdin)"""
+@fetch_app.command("features")
+def fetch_features():
+    """Fetch track features (given list of tracks)"""
     sp = get_client()
 
     raw_data = sys.stdin.read()
