@@ -39,3 +39,17 @@ SPOTIPY_CLIENT_SECRET="<redacted>"
 SPOTIPY_REDIRECT_URI="http://127.0.0.1:9090"
 SPOTIFY_USER="<username>"
 ```
+### example: build feature sets from liked songs
+
+```sh
+# first, create a dir for our data:
+mkdir -p data
+# fetch our liked songs
+span fetch liked | tee data/liked.json
+# fetch features for those songs
+span fetch features < data/liked.json | tee data/liked_features.json
+# crunch the data into feature sets
+span crunch feature_sets data/liked.json data/liked_features.json > data/crunch_feature_sets.json
+# finally, transform to csv data
+span crunch to_csv data/crunch_feature_sets.json > data/feature_sets.csv
+```
