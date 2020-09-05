@@ -16,10 +16,15 @@ def get_client() -> Spotify:  # get an authenticated client
 
 
 app = typer.Typer()
+
 fetch_app = typer.Typer()
 app.add_typer(fetch_app, name="fetch", help="Fetch remote lists via the Spotify API")
+
+crunch_app = typer.Typer()
+app.add_typer(crunch_app, name="crunch", help="Crunch downloaded data")
+
 analyze_app = typer.Typer()
-app.add_typer(analyze_app, name="analyze", help="Analyze data using the Spotify API")
+app.add_typer(analyze_app, name="analyze", help="Analyze data")
 
 
 @fetch_app.command("liked")
