@@ -56,6 +56,20 @@ def fetch_features():
     # export data
     sys.stdout.write(jsonpickle.encode(features))
 
+@crunch_app.command("feature_sets")
+def crunch_feature_sets(track_list: typer.FileText, feature_data: typer.FileText):
+    """Combine track list and feature data into a list of Feature Sets"""
+
+    tracks = jsonpickle.decode(track_list.read())
+    features = jsonpickle.decode(feature_data.read())
+
+    from span.tasks.crunch import make_feature_sets
+
+    feature_sets = make_feature_sets(tracks, features)
+
+    # export data
+    sys.stdout.write(jsonpickle.encode(feature_sets))
+
 
 @app.callback()
 def cli_main(verbose: bool = typer.Option(False, "--verbose", "-v")):
