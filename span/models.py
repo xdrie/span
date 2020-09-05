@@ -65,7 +65,7 @@ class AudioFeatures:
         time_signature,
         valence,
     ):
-        self.acoustincess: float = acousticness
+        self.acousticness: float = acousticness
         self.danceability: float = danceability
         self.energy: float = energy
         self.id: str = id
@@ -78,3 +78,51 @@ class AudioFeatures:
         self.tempo: float = tempo
         self.time_signature: int = time_signature
         self.valence: float = valence
+
+
+class FeatureSet(Track, AudioFeatures):
+    def __init__(
+        self,
+        # track
+        artist,
+        album,
+        name,
+        release_date,
+        id,
+        popularity,
+        duration,
+        # audio features
+        acousticness,
+        danceability,
+        energy,
+        instrumentalness,
+        key,
+        liveness,
+        loudness,
+        mode,
+        speechiness,
+        tempo,
+        time_signature,
+        valence,
+    ):
+        # initialize track
+        Track.__init__(
+            self, artist, album, name, release_date, id, popularity, duration
+        )
+        # initialize features
+        AudioFeatures.__init__(
+            self,
+            acousticness,
+            danceability,
+            energy,
+            id,
+            instrumentalness,
+            key,
+            liveness,
+            loudness,
+            mode,
+            speechiness,
+            tempo,
+            time_signature,
+            valence,
+        )
